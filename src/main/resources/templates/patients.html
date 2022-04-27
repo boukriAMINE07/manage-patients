@@ -54,7 +54,7 @@
                        <td th:text="${p.getDateNaissance()}"></td>
                        <td th:text="${p.getScore()}"></td>
                        <td th:text="${p.isMalade()}"></td>
-                       <td sec:authorize="hasRole('ADMIN')" >
+                       <td sec:authorize="hasAuthority('ADMIN')" >
                            <a  th:onclick="return confirm('Etes vous sure ?')" th:href="@{/admin/deletePatient(id=${p.getId()},keyword=${keyword},page=${currentPage})}" th:name="${p.getId()}"><img th:src="@{/img/delete.png}" ></a>
                            <a  th:href="@{/admin/editForm/{id}(id=${p.id},keyword=${keyword},page=${currentPage})}" ><img th:src="@{/img/edit.png}" ></a>
 
