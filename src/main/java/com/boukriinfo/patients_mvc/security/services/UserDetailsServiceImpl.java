@@ -27,9 +27,9 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         appUser.getAppRoles().forEach(role->{
             SimpleGrantedAuthority authority=new SimpleGrantedAuthority(role.getRoleName());
             authorities.add(authority);
-        });*/
+        });
 
-        //methode 2 ==> utilisation API Stream
+        //methode 2 ==> utilisation API Stream*/
         Collection<GrantedAuthority> authorities1=
                 appUser.getAppRoles()
                         .stream()

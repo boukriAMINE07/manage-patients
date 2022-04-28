@@ -24,7 +24,7 @@ public class PatientController implements WebMvcConfigurer {
     @GetMapping(path = "/user/index")
     public String patients(Model model,
                            @RequestParam(name = "page", defaultValue = "0") int page,
-                           @RequestParam(name = "size", defaultValue = "6") int size,
+                           @RequestParam(name = "size", defaultValue = "8") int size,
                            @RequestParam(name = "keyword", defaultValue = "") String keyword) {
         Page<Patient> PagePatients = patientRepository.findByNomContains(keyword, PageRequest.of(page, size));
 
