@@ -1,6 +1,8 @@
 package com.boukriinfo.patients_mvc;
 
+import com.boukriinfo.patients_mvc.entities.Medecin;
 import com.boukriinfo.patients_mvc.entities.Patient;
+import com.boukriinfo.patients_mvc.repositories.MedecinRepository;
 import com.boukriinfo.patients_mvc.repositories.PatientRepository;
 import com.boukriinfo.patients_mvc.security.services.SecurityService;
 import org.springframework.boot.CommandLineRunner;
@@ -59,6 +61,22 @@ public class PatientsMvcApplication {
 
         };
     }
+    //@Bean
+    CommandLineRunner saveMedecin(MedecinRepository medecinRepository){
+        return args -> {
+            Stream.of("mohamed","Mourad","Ahmed")
+                    .forEach(name->{
+                        Medecin medecin=new Medecin();
+                        medecin.setNom(name);
+                        medecin.setEmail(name+"@gmail");
+                        medecin.setSpecialite(Math.random()>0.5?"Dentaire":"Psychologe");
+                        medecin.setRendezVous(null);
+                        medecinRepository.save(medecin);
+                    });
+        };
+    }
+
+
     @Bean
     PasswordEncoder passwordEncoder(){
         return new BCryptPasswordEncoder();

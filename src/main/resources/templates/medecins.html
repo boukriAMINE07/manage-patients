@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+      layout:decorate="layout">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="/webjars/bootstrap/5.1.3/js/bootstrap.bundle.js"></script>
+
+</head>
+<body>
+
+<div class="container  spacer " layout:fragment="content">
+    <div class="card">
+
+        <div class="card-header">
+            La liste des Medecins
+        </div>
+        <div class="card-body">
+            <form method="get" th:action="@{/medecin/index}">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-2">
+                            <label class="form-label">Key word</label>
+                        </div>
+                        <div class="col">
+                            <input th:type="text" class="form-control" th:value="${keyword}" name="keyword" >
+                        </div>
+                        <div class="col-auto">
+                            <button type="submit" class="btn btn-outline-primary">Chercher</button>
+                        </div>
+                    </div>
+
+
+
+                </div>
+            </form>
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nom</th>
+                    <th>Email</th>
+                    <th>Specialite </th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="p:${listeMedecins}">
+                    <td th:text="${p.getMedecin_Id()}"></td>
+                    <td th:text="${p.getNom()}"></td>
+                    <td th:text="${p.getEmail()}"></td>
+                    <td th:text="${p.getSpecialite()}"></td>
+
+                    <td sec:authorize="hasAuthority('ADMIN')" >
+                        <a  th:onclick="return confirm('Etes vous sure ?')" th:href="@{/admin/deleteMedecin(id=${p.getMedecin_Id()},keyword=${keyword},page=${currentPage})}" th:name="${p.getMedecin_Id()}"><img th:src="@{/img/delete.png}" ></a>
+                        <a  th:href="@{/admin/editFormMedecin/{id}(id=${p.getMedecin_Id()},keyword=${keyword},page=${currentPage})}" ><img th:src="@{/img/edit.png}" ></a>
+
+                    </td>
+
+                </tr>
+                </tbody>
+            </table>
+
+            <ul class="nav nav-pills" >
+                <li class="nav-item" th:each="page,status:${pages}">
+
+
+                    <a th:class="${status.index==currentPage?'btn btn-info m-1':'btn btn-outline-info m-1'}"
+                       th:text="${status.index}"
+                       th:href="@{/medecin/index(keyword=${keyword},page=${status.index})}" ></a>
+
+                </li>
+            </ul>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>

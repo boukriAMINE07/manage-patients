@@ -45,7 +45,7 @@ public class PatientController implements WebMvcConfigurer {
     public String savePatient(Model model, @Valid Patient patient, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) return "formP";
         patientRepository.save(patient);
-        return "redirect:/index";
+        return "redirect:/user/index";
     }
 
     @GetMapping(path = "/admin/editForm/{id}")

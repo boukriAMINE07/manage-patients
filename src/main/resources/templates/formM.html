@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="layout">
+<head>
+    <meta charset="UTF-8">
+    <title>AJOUTER Medecin</title>
+    <script src="/webjars/bootstrap/5.1.3/js/bootstrap.bundle.js"></script>
+</head>
+<body>
+    <div  class="container col-md-6 spacer" layout:fragment="content">
+        <div class="card">
+            <div class="card-header">
+                Saisier un Medecin
+            </div>
+            <div class="card-body">
+                <form method="post" th:action="@{/admin/saveMedecin}">
+                    <div class="form-row">
+                        <div class="form-group  ">
+                            <label th:class="form-label" for="inputEmail4">Nom </label>
+                            <input type="text" class="form-control" id="inputEmail4" name="nom" th:value="${medecin.nom}" placeholder="Nom">
+                     <span th:class="text-danger" th:errors="${medecin.nom}"></span>
+                        </div>
+                        <div class="form-group">
+                            <label th:class="form-label" for="inputPassword4">email</label>
+                            <input type="text" class="form-control"  name="email" id="inputPassword4" th:value="${medecin.email}" placeholder="Email">
+                             <span th:class="text-danger" th:errors="${medecin.email}"></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label th:class="form-label" for="inputAddress">Specialite</label>
+                        <input type="text" class="form-control" id="inputAddress" name="specialite" th:value="${medecin.specialite}" placeholder="Specialite">
+                          <span th:class="text-danger"  th:errors="${medecin.specialite}"></span>
+                     </div>
+
+                     <br>
+
+                     <button type="submit" class="btn btn-primary  form-label m-auto">AJOUTER</button>
+                 </form>
+             </div>
+
+         </div>
+     </div>
+
+ </body>
+ </html>
