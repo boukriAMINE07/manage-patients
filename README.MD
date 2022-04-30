@@ -24,13 +24,15 @@
 </li>
 <li style="color: red"><strong>UTILISATEUR</strong>
     <hr>
+<h3>Patient</h3>
      <ol> <img src="src/main/resources/static/img/home-user.png"></ol>
-    <ol style="text-align: center"><strong style="color: red">Figure 1: </strong> La liste des Patients</ol>
- <ol> <img src="src/main/resources/static/img/search-user.png"></ol>
-    <ol style="text-align: center"><strong style="color: red">Figure 2: </strong> Chercher un Patient</ol>
-<ol> <img src="src/main/resources/static/img/search-user.png"></ol>
-    <ol style="text-align: center"><strong style="color: red">Figure 3: </strong> Chercher un Patient</ol>
-</li>    
+     <ol style="text-align: center"><strong style="color: red">Figure 1: </strong> La liste des Patients</ol>
+     <ol> <img src="src/main/resources/static/img/search-user.png"></ol>
+        <ol style="text-align: center"><strong style="color: red">Figure 2: </strong> Chercher un Patient</ol>
+<h3>Medecin</h3>
+    <ol> <img src="src/main/resources/static/img/search-user.png"></ol>
+    <ol style="text-align: center"><strong style="color: red">Figure 3: </strong> Chercher un Medecin</ol>
+</li>
 
 
 </ul>
