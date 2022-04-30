@@ -30,7 +30,7 @@
      <ol> <img src="src/main/resources/static/img/search-user.png"></ol>
         <ol style="text-align: center"><strong style="color: red">Figure 2: </strong> Chercher un Patient</ol>
 <h3>Medecin</h3>
-    <ol> <img src="src/main/resources/static/img/search-user.png"></ol>
+    <ol> <img src="src/main/resources/static/img/list-medecin-user.png"></ol>
     <ol style="text-align: center"><strong style="color: red">Figure 3: </strong> Chercher un Medecin</ol>
 </li>
 
